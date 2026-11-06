@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #000000;
+  --color-ink: #000000;
+  --color-navy: #000000;
+  --color-navy-700: #2a2a2a;
+  --color-amber: #000000;
+  --color-amber-500: #2a2a2a;
+  --color-sky: #737373;
+  --color-lagoon: #262626;
+  --color-leaf: #000000;
+  --color-muted: #5c5c5c;
+  --color-surface: #f4f4f4;
+  --color-line: #e6e6e6;
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --radius-card: 1.25rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --dark-surface: #000000;
+  --dark-ink: #ffffff;
+  --dark-muted: #c7c7c7;
+  --dark-amber: #ffffff;
+  --dark-sky: #c7c7c7;
+}
+
+[data-theme="dark"] {
+  --color-surface: var(--dark-surface);
+  --color-ink: var(--dark-ink);
+  --color-muted: var(--dark-muted);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(18);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
