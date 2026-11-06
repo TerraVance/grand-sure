@@ -55,8 +55,8 @@ export function Calculator({ content }: { content: CalculatorContent }) {
             />
           </div>
           <p className="mt-4 text-sm leading-6 text-muted">
-            Estimate uses {formatInr(content.assumptions.tariffPerKwh)} per kWh, {content.assumptions.peakSunHours} peak sun hours, and a{" "}
-            {content.assumptions.performanceRatio} performance ratio. A site survey confirms the final size.
+            This estimate uses {formatInr(content.assumptions.tariffPerKwh)} per kWh, {content.assumptions.peakSunHours} peak sun hours, and a{" "}
+            {content.assumptions.performanceRatio} performance ratio. A site survey confirms the final system size.
           </p>
         </div>
         <div className="lg:col-span-6">

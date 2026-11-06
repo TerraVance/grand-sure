@@ -7,7 +7,7 @@ export function ClosingCta({ label }: { label: string }) {
         <h2 id="closing-title" className="max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
           Ready for a survey on your roof?
         </h2>
-        <p className="max-w-xl text-lg leading-8 text-white/75">Tell us the bill and the building. We will reply with a time, not a package deal.</p>
+        <p className="max-w-xl text-lg leading-8 text-white/75">Share your electricity bill and building type. We will reply with a survey time. There is no obligation to purchase.</p>
         <Button href="#contact" tone="dark">
           {label}
         </Button>

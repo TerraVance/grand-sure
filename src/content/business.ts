@@ -17,10 +17,10 @@ export const business: BusinessInfo = {
     postalCode: "443201",
     country: "India",
   },
-  phone: "[NUMBER]",
-  whatsapp: "[NUMBER]",
-  email: "[EMAIL]",
-  hours: "[HOURS]",
+  phone: "+91 83082 71171",
+  whatsapp: "+91 83082 71171",
+  email: "grandsureelectrical1122@gmail.com",
+  hours: "",
   mapsLink: "https://maps.app.goo.gl/3hckZvjJvqiFAFdZA",
   mapsEmbedUrl: "https://www.google.com/maps?q=20.3388829,76.2626542&z=17&output=embed",
   lat: 20.3388829,
@@ -30,13 +30,13 @@ export const business: BusinessInfo = {
     { id: "facebook", label: "Facebook", href: "" },
     { id: "youtube", label: "YouTube", href: "" },
   ],
-  isPlaceholderContact: true,
+  isPlaceholderContact: false,
 };
 
 export const hero: HeroContent = {
   eyebrow: "Solar for homes and businesses",
-  headline: "Let's build",
-  highlight: "dependable solar.",
+  headline: "Powered by",
+  highlight: "the sun",
   subtext:
     "Grand Sure designs, supplies, and installs panels, inverters, batteries, and water heaters for homes and businesses.",
   primaryCta: "Get a quote",
@@ -51,7 +51,7 @@ export const hero: HeroContent = {
     },
     {
       title: "Businesses",
-      summary: "Arrays for sheds, workshops, and society terraces, designed around how the building actually uses power.",
+      summary: "Systems for sheds, workshops, and housing-society terraces, designed around how the building uses electricity.",
       href: "#gallery",
       cta: "See project types",
     },

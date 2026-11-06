@@ -13,14 +13,14 @@ export const statsSection: SectionCopy = {
   id: "stats",
   eyebrow: "Track record",
   title: "Numbers from installed roofs",
-  intro: "We are on a mission to put reliable solar on roofs that can use it, and to stay available after the install.",
+  intro: "We install reliable solar on roofs that can use it, and we remain available after installation.",
 };
 
 export const stats: Stat[] = [
   { id: "installations", label: "Installations", value: 480, suffix: "+" },
   { id: "capacity", label: "kW installed", value: 2400, suffix: "+" },
   { id: "years", label: "Years of experience", value: 12 },
-  { id: "warranty", label: "Year panel warranty", value: 25 },
+  { id: "warranty", label: "Years of panel warranty", value: 25 },
 ];
 
 export const processSection: SectionCopy = {
@@ -47,13 +47,13 @@ export const process: ProcessStep[] = [
     id: "installation",
     step: "03",
     title: "Installation",
-    summary: "Structure, modules, inverter, and commissioning, usually within a few days on site.",
+    summary: "Mounting structure, modules, inverter, and commissioning, usually within a few days on site.",
   },
   {
     id: "support",
     step: "04",
     title: "Support",
-    summary: "Generation check, paperwork guidance, and a crew you can call when something looks off.",
+    summary: "A generation check, guidance on paperwork, and a team you can call if output drops.",
   },
 ];
 
@@ -62,7 +62,7 @@ export const calculator: CalculatorContent = {
   eyebrow: "Savings calculator",
   title: "A first look at system size",
   intro:
-    "Move the bill amount. This is a planning estimate, not a quote. The survey replaces it with a design for your roof.",
+    "Adjust the monthly bill. This is a planning estimate, not a quotation. The site survey replaces it with a design for your roof.",
   billLabel: "Monthly electricity bill",
   defaultBill: 4000,
   minBill: 1000,
@@ -80,8 +80,8 @@ export const calculator: CalculatorContent = {
 export const benefitsSection: SectionCopy = {
   id: "why-us",
   eyebrow: "Why Grand Sure",
-  title: "A crew that stays after the install",
-  intro: "The equipment matters. So does the team that mounts it and answers the phone later.",
+  title: "A team that stays after installation",
+  intro: "The equipment matters. So does the team that installs it and answers the phone afterwards.",
 };
 
 export const benefits: Benefit[] = [
@@ -93,7 +93,7 @@ export const benefits: Benefit[] = [
   {
     id: "survey",
     title: "Survey before the sale",
-    summary: "Shade, structure, and your usage come first. The quote follows the roof, not a package deal.",
+    summary: "Shade, structure, and your electricity use come first. The quotation follows the roof, not a fixed package.",
   },
   {
     id: "warranty",
@@ -102,18 +102,18 @@ export const benefits: Benefit[] = [
   },
   {
     id: "paperwork",
-    title: "Net-meter guidance",
-    summary: "We walk you through the documents your distribution company asks for.",
+    title: "Net-metering guidance",
+    summary: "We guide you through the documents your electricity distribution company requires.",
   },
   {
     id: "safety",
     title: "Protection included",
-    summary: "Earthing, surge protection, and labelled isolators are part of the install, not extras.",
+    summary: "Earthing, surge protection, and labelled isolators are included in the installation.",
   },
   {
     id: "care",
     title: "Aftercare",
-    summary: "Cleaning plans and fault visits so the system still produces what the design promised.",
+    summary: "Cleaning plans and fault visits so the system continues to produce what the design specified.",
   },
 ];
 
@@ -173,7 +173,7 @@ export const testimonialsSection: SectionCopy = {
   id: "testimonials",
   eyebrow: "Customers",
   title: "What owners say after a year",
-  intro: "Names below are representative stories used until published reviews are added.",
+  intro: "These are sample stories. They are not published customer reviews.",
 };
 
 export const testimonials: Testimonial[] = [
@@ -187,7 +187,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "imran",
     quote:
-      "They labelled every isolator and left a one-page note of what to check if generation dips. That note has already been useful.",
+      "They labelled every isolator and left a one-page note of what to check if generation falls. That note has already been useful.",
     name: "Imran Shaikh",
     detail: "Workshop metal roof",
   },
@@ -219,25 +219,25 @@ export const faq: FaqItem[] = [
     id: "cost",
     question: "How much does a home system cost?",
     answer:
-      "A typical family system is priced per kilowatt after we see the roof and your bills. The calculator on this page is only a starting range. The written estimate lists equipment, structure, and installation separately.",
+      "A typical home system is priced per kilowatt after we inspect the roof and your electricity bills. The calculator on this page is only a starting range. The written estimate lists equipment, structure, and installation separately.",
   },
   {
     id: "roof",
     question: "Will my roof take the weight?",
     answer:
-      "Concrete and many metal roofs can. We check slab condition, waterproofing, and wind exposure during the survey and say no when the structure is not ready.",
+      "Concrete slabs and many metal roofs can. During the survey we check the slab, waterproofing, and wind exposure. We decline the work when the structure is not suitable.",
   },
   {
     id: "outage",
     question: "Does solar work during a power cut?",
     answer:
-      "A grid-tie system switches off in an outage, which is a safety rule. A hybrid inverter with a battery can keep selected circuits on. We will tell you which loads fit the battery you choose.",
+      "A grid-tied system switches off during a power cut. This is a safety requirement. A hybrid inverter with a battery can keep selected circuits on. We will tell you which loads the battery you choose can support.",
   },
   {
     id: "meter",
     question: "Can I send extra power back to the grid?",
     answer:
-      "That depends on your distribution company and a net-meter approval. We prepare the drawings and walk you through the application. Approval timing is set by the utility, not by us.",
+      "That depends on your electricity distribution company and net-metering approval. We prepare the drawings and guide you through the application. The utility sets the approval time.",
   },
   {
     id: "warranty",
@@ -249,7 +249,7 @@ export const faq: FaqItem[] = [
     id: "time",
     question: "How long does installation take?",
     answer:
-      "After you approve the design and material is on site, most home installs finish in one to three working days. Utility paperwork can take longer than the installation itself.",
+      "After you approve the design and the material is on site, most home installations finish in one to three working days. Utility paperwork can take longer than the installation itself.",
   },
 ];
 
@@ -257,12 +257,12 @@ export const contactSection: SectionCopy = {
   id: "contact",
   eyebrow: "Contact",
   title: "Tell us about the roof",
-  intro: "Send a few details and we will reply with a time for the survey. There is no obligation to buy.",
+  intro: "Share a few details and we will reply with a time for the site survey. There is no obligation to purchase.",
 };
 
 export const footer = {
-  blurb: "Solar panels, storage, water heaters, and the installation crew to match.",
-  enquireLabel: "Enquire",
+  blurb: "Solar panels, storage, water heaters, and installation to match.",
+  enquireLabel: "Request a quote",
   quoteCta: "Get a quote",
-  directionsLabel: "Get Directions",
+  directionsLabel: "Get directions",
 };

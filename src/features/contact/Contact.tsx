@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { MapEmbed } from "@/features/contact/MapEmbed";
 import { QuoteForm } from "@/features/contact/QuoteForm";
-import { eyebrow as eyebrowClass } from "@/components/ui/styles";
-import { formatAddress, mailHref, phoneHref } from "@/lib/contact";
+import { eyebrow as eyebrowClass, focusRing } from "@/components/ui/styles";
+import { formatAddress, mailHref, phoneHref, whatsAppHref } from "@/lib/contact";
+import { cn } from "@/lib/format";
 import { usePrefersReducedMotion } from "@/animations/usePrefersReducedMotion";
 import type { BusinessInfo, Product, SectionCopy } from "@/types/content";
 
@@ -22,6 +23,8 @@ export function Contact({
   const reduced = usePrefersReducedMotion();
   const phone = phoneHref(business.phone);
   const email = mailHref(business.email);
+  const whatsapp = whatsAppHref(business.whatsapp, "Hello Grand Sure");
+  const contactLink = cn("underline decoration-black/30 underline-offset-4 hover:decoration-black", focusRing);
 
   return (
     <section id={section.id} aria-labelledby="contact-title" className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -56,18 +59,34 @@ export function Contact({
               <div>
                 <dt className="font-semibold text-black">Phone / WhatsApp</dt>
                 <dd className="text-muted">
-                  {phone ? <a href={phone}>{business.phone}</a> : business.phone}
-                  <span className="mx-2">·</span>
-                  {business.whatsapp}
+                  {phone ? (
+                    <a href={phone} className={contactLink}>
+                      {business.phone}
+                    </a>
+                  ) : (
+                    business.phone
+                  )}
+                  {whatsapp ? (
+                    <>
+                      <span className="mx-2">·</span>
+                      <a href={whatsapp} className={contactLink} target="_blank" rel="noreferrer">
+                        WhatsApp
+                      </a>
+                    </>
+                  ) : null}
                 </dd>
               </div>
               <div>
                 <dt className="font-semibold text-black">Email</dt>
-                <dd className="text-muted">{email ? <a href={email}>{business.email}</a> : business.email}</dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-black">Working hours</dt>
-                <dd className="text-muted">{business.hours}</dd>
+                <dd className="text-muted">
+                  {email ? (
+                    <a href={email} className={contactLink}>
+                      {business.email}
+                    </a>
+                  ) : (
+                    business.email
+                  )}
+                </dd>
               </div>
             </dl>
           </address>

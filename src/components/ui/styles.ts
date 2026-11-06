@@ -17,8 +17,8 @@ export const buttonBase =
 export function buttonVariant(variant: "primary" | "secondary" | "ghost", tone: "light" | "dark") {
   if (variant === "primary") {
     return tone === "dark"
-      ? "bg-white text-black hover:bg-neutral-200"
-      : "bg-black text-white hover:bg-neutral-800";
+      ? "bg-white !text-black hover:bg-neutral-200"
+      : "bg-black !text-white hover:bg-neutral-800";
   }
   if (variant === "ghost") {
     return tone === "dark"

@@ -11,7 +11,7 @@ describe("Faq", () => {
 
     expect(screen.getByText(/priced per kilowatt/i)).toBeVisible();
     await user.click(screen.getByRole("button", { name: /Will my roof take the weight/i }));
-    expect(screen.getByText(/Concrete and many metal roofs/i)).toBeVisible();
+    expect(screen.getByText(/Concrete slabs and many metal roofs/i)).toBeVisible();
     expect(screen.getByText(/priced per kilowatt/i)).not.toBeVisible();
   });
 });

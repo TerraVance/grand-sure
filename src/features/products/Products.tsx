@@ -56,7 +56,7 @@ export function Products({
               className={cn(
                 "min-h-11 shrink-0 rounded-full px-4 text-sm font-semibold",
                 focusRing,
-                selected ? "bg-black text-white" : "border border-line bg-white text-black",
+                selected ? "bg-black !text-white" : "border border-line bg-white text-black",
               )}
               onClick={() => setCategory(item.id)}
             >
@@ -140,7 +140,7 @@ function ProductCard({
           </dl>
           <button
             type="button"
-            className={cn("mt-auto min-h-11 rounded-full bg-black px-4 text-sm font-semibold text-white", focusRingOnDark)}
+            className={cn("mt-auto min-h-11 rounded-full bg-black px-4 text-sm font-semibold !text-white", focusRingOnDark)}
             aria-label={`${enquireLabel} about ${product.name}`}
             onClick={() => onEnquire(product.id)}
           >

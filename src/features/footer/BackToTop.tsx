@@ -20,7 +20,7 @@ export function BackToTop() {
     <button
       type="button"
       className={cn(
-        "fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-full bg-black text-lg font-semibold text-white shadow-card",
+        "fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-full bg-black text-lg font-semibold !text-white shadow-card",
         focusRing,
         visible ? "opacity-100" : "pointer-events-none opacity-0",
       )}

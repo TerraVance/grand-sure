@@ -5,7 +5,7 @@ export const productsSection: SectionCopy = {
   eyebrow: "Equipment",
   title: "Everything the system needs",
   intro:
-    "Panels, power electronics, storage, and the hardware that holds it all on the roof. Enquire on a product and we will price it for your site.",
+    "Panels, power electronics, storage, and the hardware that holds it all on the roof. Request a quote for a product and we will price it for your site.",
 };
 
 export const categories: ProductCategory[] = [
@@ -90,7 +90,7 @@ export const products: Product[] = [
     category: "accessories",
     summary: "DC cable, MC4 connectors, SPD, and earthing accessories for a clean install.",
     specs: [
-      { label: "Cable", value: "4 sq mm DC" },
+      { label: "Cable", value: "4 sq. mm DC" },
       { label: "Protection", value: "SPD included" },
       { label: "Connectors", value: "MC4" },
     ],
@@ -113,6 +113,6 @@ export const services: Service[] = [
   {
     id: "maintenance",
     name: "Maintenance",
-    summary: "Cleaning plans and fault visits so output does not quietly slip.",
+    summary: "Cleaning plans and fault visits so output stays in line with the design.",
   },
 ];

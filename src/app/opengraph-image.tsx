@@ -21,7 +21,7 @@ export default function OpenGraphImage() {
       >
         <div style={{ display: "flex", fontSize: 28, letterSpacing: 4, color: "#FFFFFF" }}>GRAND SURE</div>
         <div style={{ display: "flex", fontSize: 72, fontWeight: 700, lineHeight: 1.05, maxWidth: 800 }}>
-          Solar systems built to last.
+          Solar systems built to last
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#D4D4D4" }}>Panels, batteries, and installation</div>
       </div>

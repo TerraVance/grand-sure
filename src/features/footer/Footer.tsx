@@ -35,9 +35,24 @@ export function Footer({
         <div className="grid content-start gap-2 text-sm md:col-span-4">
           <p className="font-semibold uppercase tracking-[0.18em]">Contact</p>
           <p className="text-white/70">{formatAddress(business.address)}</p>
-          <p className="text-white/70">{phone ? <a href={phone}>{business.phone}</a> : business.phone}</p>
-          <p className="text-white/70">{email ? <a href={email}>{business.email}</a> : business.email}</p>
-          <p className="text-white/70">{business.hours}</p>
+          <p className="text-white/70">
+            {phone ? (
+              <a href={phone} className={cn("underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white", focusRingOnDark)}>
+                {business.phone}
+              </a>
+            ) : (
+              business.phone
+            )}
+          </p>
+          <p className="text-white/70">
+            {email ? (
+              <a href={email} className={cn("underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white", focusRingOnDark)}>
+                {business.email}
+              </a>
+            ) : (
+              business.email
+            )}
+          </p>
         </div>
       </div>
       <p className="mx-auto mt-10 max-w-6xl border-t border-white/15 pt-6 text-sm text-white/60">

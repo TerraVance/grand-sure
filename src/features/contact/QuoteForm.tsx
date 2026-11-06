@@ -48,6 +48,18 @@ export function QuoteForm({ products, whatsapp }: { products: Product[]; whatsap
     setValues((current) => ({ ...current, [key]: value }));
   }
 
+  function quoteMessage() {
+    return quoteWhatsAppText({
+      name: values.name,
+      phone: values.phone,
+      email: values.email,
+      city: values.city,
+      productName,
+      monthlyBill: values.monthlyBill ? Number(values.monthlyBill) : undefined,
+      message: values.message,
+    });
+  }
+
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormError("");
@@ -72,6 +84,8 @@ export function QuoteForm({ products, whatsapp }: { products: Product[]; whatsap
 
     setErrors({});
     setStatus("submitting");
+    const href = whatsAppHref(whatsapp, quoteMessage());
+    window.open(href, "_blank", "noopener,noreferrer");
     try {
       const response = await fetch("/api/quote", {
         method: "POST",
@@ -88,39 +102,29 @@ export function QuoteForm({ products, whatsapp }: { products: Product[]; whatsap
             city: body.fieldErrors.city?.[0],
             message: body.fieldErrors.message?.[0],
           });
+          setFormError(body.error ?? "Check the form and try again.");
+          setStatus("error");
+          return;
         }
-        setFormError(body.error ?? "We could not send your request. Please try again.");
-        setStatus("error");
-        return;
       }
-      setStatus("success");
     } catch {
-      setFormError("We could not send your request. Please try again.");
-      setStatus("error");
+      // WhatsApp already opened with the request.
     }
+    setStatus("success");
   }
 
   if (status === "success") {
-    const href = whatsAppHref(
-      whatsapp,
-      quoteWhatsAppText({
-        name: values.name,
-        city: values.city,
-        productName,
-        monthlyBill: values.monthlyBill ? Number(values.monthlyBill) : undefined,
-        message: values.message,
-      }),
-    );
+    const href = whatsAppHref(whatsapp, quoteMessage());
     return (
       <div className="rounded-card border border-line bg-white p-6 shadow-card" role="status">
-        <h3 className="font-display text-3xl font-semibold text-black">{"We'll contact you"}</h3>
+        <h3 className="font-display text-3xl font-semibold text-black">We will contact you</h3>
         <p className="mt-3 text-muted leading-7">
-          Your note is with the Grand Sure team. If you would rather continue the conversation now, WhatsApp is open.
+          Your request is open in WhatsApp. Send the message so it reaches Grand Sure.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button href={href}>Continue on WhatsApp</Button>
           <Button variant="secondary" onClick={() => setStatus("idle")}>
-            Send another
+            Submit another request
           </Button>
         </div>
       </div>
@@ -190,7 +194,7 @@ export function QuoteForm({ products, whatsapp }: { products: Product[]; whatsap
           />
         </Field>
       </div>
-      <Field id="quote-product" label="Product interest">
+      <Field id="quote-product" label="Product of interest">
         <SelectInput
           id="quote-product"
           name="productId"
@@ -232,7 +236,7 @@ export function QuoteForm({ products, whatsapp }: { products: Product[]; whatsap
         </p>
       ) : null}
       <Button type="submit" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending" : "Request quote"}
+        {status === "submitting" ? "Sending…" : "Request a quote"}
       </Button>
     </form>
   );

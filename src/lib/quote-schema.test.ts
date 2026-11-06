@@ -24,7 +24,7 @@ describe("quoteSchema", () => {
     if (!parsed.success) {
       const fields = parsed.error.flatten().fieldErrors;
       expect(fields.name?.[0]).toBe("Enter your name");
-      expect(fields.email?.[0]).toBe("Enter a valid email");
+      expect(fields.email?.[0]).toBe("Enter a valid email address");
     }
   });
 

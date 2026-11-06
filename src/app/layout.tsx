@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
+import Script from "next/script";
 import { buildMetadata } from "@/lib/seo";
 import "./globals.css";
 
@@ -16,6 +17,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body className="font-sans antialiased">
+        <Script id="land-at-start" strategy="beforeInteractive">
+          {`try{history.scrollRestoration="manual"}catch(e){}if(location.hash){history.replaceState(null,"",location.pathname+location.search)}window.scrollTo(0,0);`}
+        </Script>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-black focus:px-4 focus:py-2 focus:text-white"

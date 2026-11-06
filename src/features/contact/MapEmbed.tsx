@@ -27,6 +27,12 @@ export function MapEmbed({ business, directionsLabel }: { business: BusinessInfo
   }, []);
 
   const showFrame = Boolean(business.mapsEmbedUrl) && near;
+  const scrollY = useRef(0);
+
+  useEffect(() => {
+    if (!showFrame) return;
+    scrollY.current = window.scrollY;
+  }, [showFrame]);
 
   return (
     <div ref={rootRef} className="overflow-hidden rounded-card border border-line bg-white shadow-card">
@@ -37,7 +43,14 @@ export function MapEmbed({ business, directionsLabel }: { business: BusinessInfo
             src={business.mapsEmbedUrl ?? undefined}
             className="h-full w-full border-0"
             loading="lazy"
+            tabIndex={-1}
             referrerPolicy="no-referrer-when-downgrade"
+            onLoad={() => {
+              const y = scrollY.current;
+              requestAnimationFrame(() => {
+                if (Math.abs(window.scrollY - y) > 80) window.scrollTo(0, y);
+              });
+            }}
           />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
@@ -52,13 +65,13 @@ export function MapEmbed({ business, directionsLabel }: { business: BusinessInfo
               ↓
             </motion.span>
             <p className="max-w-sm text-sm leading-6 text-muted">
-              Map preview is unavailable. Use Get Directions to open the location in Google Maps.
+              The map preview is unavailable. Use Get directions to open the location in Google Maps.
             </p>
           </div>
         )}
       </div>
       {showFrame ? (
-        <p className="px-4 pt-3 text-sm text-muted">If the map does not load, use Get Directions.</p>
+        <p className="px-4 pt-3 text-sm text-muted">If the map does not load, use Get directions.</p>
       ) : null}
       <div className="p-4">
         <Button href={directions} variant="secondary">

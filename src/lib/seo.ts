@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/content";
-import { formatAddress } from "@/lib/contact";
+import { formatAddress, isFilled } from "@/lib/contact";
 
 export function buildMetadata(): Metadata {
   const { business } = getContent();
@@ -51,7 +51,7 @@ export function buildJsonLd() {
           postalCode: business.address.postalCode,
           addressCountry: business.address.country,
         },
-        openingHours: business.hours,
+        ...(isFilled(business.hours) ? { openingHours: business.hours } : {}),
         ...(business.lat !== null && business.lng !== null
           ? { geo: { "@type": "GeoCoordinates", latitude: business.lat, longitude: business.lng } }
           : {}),

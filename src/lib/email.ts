@@ -19,10 +19,7 @@ export async function sendQuoteEmail(quote: QuoteInput) {
   const to = process.env.QUOTE_TO_EMAIL;
 
   if (!apiKey || !to) {
-    if (process.env.NODE_ENV === "production") {
-      throw new Error("Email is not configured");
-    }
-    console.info("Quote received. Email is not configured in this environment.");
+    console.info("Quote received. Email is not configured; WhatsApp is the delivery path.");
     return { delivered: false as const };
   }
 

@@ -55,7 +55,16 @@ export function Navbar({
     <>
       <header className={cn("fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black text-white", scrolled && "shadow-lg")}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-          <a href="#main" className={cn("flex items-center gap-3", focusRingOnDark)}>
+          <a
+            href="#main"
+            className={cn("flex items-center", focusRingOnDark)}
+            onClick={(event) => {
+              event.preventDefault();
+              setOpen(false);
+              history.replaceState(null, "", `${location.pathname}${location.search}`);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             <Image
               src="/brand/logo-white.jpg"
               alt={business.name}
@@ -64,9 +73,6 @@ export function Navbar({
               priority
               className="h-14 w-14 object-cover mix-blend-screen sm:h-16 sm:w-16"
             />
-            <span aria-hidden="true" className="hidden font-display text-sm font-medium uppercase tracking-[0.22em] sm:inline sm:text-base">
-              {business.name}
-            </span>
           </a>
           <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
             {links.map((link) => {

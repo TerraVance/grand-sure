@@ -24,7 +24,7 @@ describe("QuoteForm", () => {
     vi.stubGlobal("fetch", fetchMock);
     renderForm();
 
-    await user.click(screen.getByRole("button", { name: "Request quote" }));
+    await user.click(screen.getByRole("button", { name: "Request a quote" }));
     expect(screen.getByText("Enter your name")).toBeInTheDocument();
     expect(fetchMock).not.toHaveBeenCalled();
   });
@@ -45,9 +45,9 @@ describe("QuoteForm", () => {
     await user.type(screen.getByLabelText("Email"), "asha@example.com");
     await user.type(screen.getByLabelText("City"), "Chikhali");
     await user.type(screen.getByLabelText("Message"), "Please survey our terrace this week.");
-    await user.click(screen.getByRole("button", { name: "Request quote" }));
+    await user.click(screen.getByRole("button", { name: "Request a quote" }));
 
-    expect(await screen.findByRole("status")).toHaveTextContent("We'll contact you");
+    expect(await screen.findByRole("status")).toHaveTextContent("We will contact you");
     expect(screen.getByRole("link", { name: "Continue on WhatsApp" })).toBeInTheDocument();
   });
 });

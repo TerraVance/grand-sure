@@ -6,11 +6,11 @@ export const quoteSchema = z.object({
     .string()
     .trim()
     .regex(/^[0-9+\-\s()]{10,18}$/, "Enter a valid phone number"),
-  email: z.string().trim().email("Enter a valid email"),
+  email: z.string().trim().email("Enter a valid email address"),
   city: z.string().trim().min(2, "Enter your city"),
   monthlyBill: z.preprocess(
     (value) => (value === "" || value === null || value === undefined ? undefined : value),
-    z.coerce.number().min(0, "Bill cannot be negative").max(1_000_000).optional(),
+    z.coerce.number().min(0, "The bill amount cannot be negative").max(1_000_000).optional(),
   ),
   productId: z.preprocess(
     (value) => (value === "" || value === null || value === undefined ? undefined : value),
