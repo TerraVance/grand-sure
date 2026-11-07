@@ -24,4 +24,17 @@ Business address, phone, WhatsApp, email, hours, and the Google Maps link live i
 
 Import the repository in Vercel. Set the environment variables above for Production and Preview. The contact form posts to `POST /api/quote`.
 
+### Domain: grandsureelectricals.in
+
+1. Deploy the project on Vercel until the default `*.vercel.app` URL opens the site.
+2. In Vercel → Project → Settings → Domains, add `grandsureelectricals.in` and `www.grandsureelectricals.in`.
+3. At the domain registrar, point DNS as Vercel shows (usually an A record for `@` and a CNAME for `www`).
+4. Set Production env `NEXT_PUBLIC_SITE_URL=https://grandsureelectricals.in`, then redeploy.
+5. Confirm `https://grandsureelectricals.in` returns the site (not 403 or a registrar parking page).
+6. In [Google Search Console](https://search.google.com/search-console), add the domain, verify ownership, and submit `https://grandsureelectricals.in/sitemap.xml`.
+7. In Google Business Profile, add the website URL so Maps and search both link to the site.
+8. Add the Instagram profile URL in `src/content/business.ts` under `social` so local search can connect the brand profiles.
+
+Google will keep ranking Instagram and Maps until the live site is crawlable and indexed. Brand searches can take days to weeks after a correct deploy.
+
 Phase 2 (customer login, quotations, invoices, admin) is not built. Reserved route groups are `src/app/(portal)` and `src/app/(admin)`. `src/server/quotes.ts` is the place a database write attaches later.

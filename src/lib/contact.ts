@@ -34,8 +34,19 @@ export function mailHref(email: string) {
   return `mailto:${email}`;
 }
 
-export function whatsAppHref(phone: string, text: string) {
-  const digits = callingDigits(phone);
+export function whatsAppHref(phoneOrLink: string, text: string) {
+  const trimmed = phoneOrLink.trim();
+  if (/^https?:\/\//i.test(trimmed)) {
+    try {
+      const url = new URL(trimmed);
+      if (text) url.searchParams.set("text", text);
+      return url.toString();
+    } catch {
+      return trimmed;
+    }
+  }
+
+  const digits = callingDigits(trimmed);
   const query = `text=${encodeURIComponent(text)}`;
   if (digits.length < 8) return `https://wa.me/?${query}`;
   return `https://wa.me/${digits}?${query}`;
@@ -51,7 +62,7 @@ export function quoteWhatsAppText(input: {
   message: string;
 }) {
   return [
-    "Hello Grand Sure, I would like a solar quote.",
+    "Hello Grand Sure Electricals, I would like a solar quote.",
     `Name: ${input.name}`,
     `Phone: ${input.phone}`,
     `Email: ${input.email}`,

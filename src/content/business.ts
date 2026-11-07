@@ -1,13 +1,13 @@
 import type { BusinessInfo, DiscoverItem, HeroContent, NavLink } from "@/types/content";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://grandsureelectricals.in";
 
 export const business: BusinessInfo = {
-  name: "Grand Sure",
-  legalName: "Grand Sure",
-  tagline: "Solar supply and installation",
+  name: "Grand Sure Electricals",
+  legalName: "Grand Sure Electricals",
+  tagline: "Solar supply and installation in Chikhli",
   description:
-    "Grand Sure supplies and installs solar panels, inverters, batteries, mounting structures, and solar water heaters for homes and businesses.",
+    "Grand Sure Electricals in Chikhli supplies and installs solar panels, inverters, batteries, mounting structures, and solar water heaters for homes and businesses.",
   siteUrl,
   address: {
     line1: "Khedekar Complex",
@@ -18,7 +18,7 @@ export const business: BusinessInfo = {
     country: "India",
   },
   phone: "+91 83082 71171",
-  whatsapp: "+91 83082 71171",
+  whatsapp: "https://wa.me/message/W3K5YTFTYEVUL1",
   email: "grandsureelectrical1122@gmail.com",
   hours: "",
   mapsLink: "https://maps.app.goo.gl/3hckZvjJvqiFAFdZA",
@@ -26,7 +26,11 @@ export const business: BusinessInfo = {
   lat: 20.3388829,
   lng: 76.2626542,
   social: [
-    { id: "instagram", label: "Instagram", href: "" },
+    {
+      id: "instagram",
+      label: "Instagram",
+      href: "https://www.instagram.com/grandsureelectricals",
+    },
     { id: "facebook", label: "Facebook", href: "" },
     { id: "youtube", label: "YouTube", href: "" },
   ],
@@ -38,7 +42,7 @@ export const hero: HeroContent = {
   headline: "Powered by",
   highlight: "the sun",
   subtext:
-    "Grand Sure designs, supplies, and installs panels, inverters, batteries, and water heaters for homes and businesses.",
+    "Grand Sure Electricals designs, supplies, and installs panels, inverters, batteries, and water heaters for homes and businesses in Chikhli.",
   primaryCta: "Get a quote",
   secondaryCta: "View equipment",
   badges: ["25-year panel warranty", "Site survey before you buy", "Local installation crew"],

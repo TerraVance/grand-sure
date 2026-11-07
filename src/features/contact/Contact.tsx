@@ -23,7 +23,7 @@ export function Contact({
   const reduced = usePrefersReducedMotion();
   const phone = phoneHref(business.phone);
   const email = mailHref(business.email);
-  const whatsapp = whatsAppHref(business.whatsapp, "Hello Grand Sure");
+  const whatsapp = whatsAppHref(business.whatsapp, "Hello Grand Sure Electricals");
   const contactLink = cn("underline decoration-black/30 underline-offset-4 hover:decoration-black", focusRing);
 
   return (
