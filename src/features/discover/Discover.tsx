@@ -7,7 +7,7 @@ export function Discover({ items }: { items: DiscoverItem[] }) {
     <section id="discover" aria-labelledby="discover-title" className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <h2 id="discover-title" className="max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-5xl">
-          Discover what Grand Sure does
+          Discover Grand Sure Electricals
         </h2>
         <ul className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {items.map((item) => (

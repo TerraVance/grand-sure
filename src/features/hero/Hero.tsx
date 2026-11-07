@@ -19,8 +19,8 @@ export function Hero({ hero }: { hero: HeroContent }) {
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-8 text-muted">{hero.subtext}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button href="#contact">{hero.primaryCta}</Button>
-            <Button href="#products" variant="secondary">
+            <Button href="/contact">{hero.primaryCta}</Button>
+            <Button href="/#products" variant="secondary">
               {hero.secondaryCta}
             </Button>
           </div>

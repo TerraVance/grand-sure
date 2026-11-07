@@ -10,7 +10,14 @@ export interface Address {
 export interface SocialLink {
   id: string;
   label: string;
+  handle?: string;
   href: string;
+}
+
+export interface OpeningHoursSpec {
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
 }
 
 export interface BusinessInfo {
@@ -24,12 +31,22 @@ export interface BusinessInfo {
   whatsapp: string;
   email: string;
   hours: string;
+  openingHours: OpeningHoursSpec[];
+  areaServed: string[];
   mapsLink: string | null;
   mapsEmbedUrl: string | null;
   lat: number | null;
   lng: number | null;
   social: SocialLink[];
   isPlaceholderContact: boolean;
+}
+
+export interface PageCopy {
+  title: string;
+  description: string;
+  eyebrow: string;
+  headline: string;
+  intro: string;
 }
 
 export interface NavLink {

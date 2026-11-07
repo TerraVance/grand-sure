@@ -64,12 +64,16 @@ export function Footer({
               business.email
             )}
           </p>
+          {business.hours ? <p className="text-white/70">{business.hours}</p> : null}
           {socialLinks.length > 0 ? (
-            <ul className="mt-3 flex flex-wrap gap-3">
+            <ul className="mt-4 grid gap-2">
               {socialLinks.map((item) => (
                 <li key={item.id}>
-                  <a href={item.href} className={footerLink} target="_blank" rel="noreferrer">
-                    {item.label}
+                  <a href={item.href} className={cn("block text-white/70 hover:text-white", focusRingOnDark)} target="_blank" rel="noreferrer">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">{item.label}</span>
+                    <span className="mt-1 block text-base font-semibold text-white underline decoration-white/40 underline-offset-4">
+                      {item.handle ?? item.label}
+                    </span>
                   </a>
                 </li>
               ))}

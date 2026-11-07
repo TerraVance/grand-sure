@@ -24,6 +24,7 @@ export function Contact({
   const phone = phoneHref(business.phone);
   const email = mailHref(business.email);
   const whatsapp = whatsAppHref(business.whatsapp, "Hello Grand Sure Electricals");
+  const instagram = business.social.find((item) => item.id === "instagram" && item.href);
   const contactLink = cn("underline decoration-black/30 underline-offset-4 hover:decoration-black", focusRing);
 
   return (
@@ -88,6 +89,22 @@ export function Contact({
                   )}
                 </dd>
               </div>
+              {business.hours ? (
+                <div>
+                  <dt className="font-semibold text-black">Working hours</dt>
+                  <dd className="text-muted">{business.hours}</dd>
+                </div>
+              ) : null}
+              {instagram ? (
+                <div>
+                  <dt className="font-semibold text-black">Instagram</dt>
+                  <dd className="text-muted">
+                    <a href={instagram.href} className={contactLink} target="_blank" rel="noreferrer">
+                      {instagram.handle ?? instagram.label}
+                    </a>
+                  </dd>
+                </div>
+              ) : null}
             </dl>
           </address>
           <MapEmbed business={business} directionsLabel={directionsLabel} />
