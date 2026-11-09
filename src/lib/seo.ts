@@ -72,7 +72,7 @@ export function buildPageMetadata(input: {
 }
 
 export function buildJsonLd() {
-  const { business, products } = getContent();
+  const { business, products, services } = getContent();
   const siteUrl = getSiteUrl();
   return {
     "@context": "https://schema.org",
@@ -113,14 +113,37 @@ export function buildJsonLd() {
         ...(business.lat !== null && business.lng !== null
           ? { geo: { "@type": "GeoCoordinates", latitude: business.lat, longitude: business.lng } }
           : {}),
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Solar equipment and installation services",
+          itemListElement: [
+            ...services.map((service) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: service.name,
+                description: service.summary,
+                provider: { "@id": `${siteUrl}/#business` },
+                areaServed: business.areaServed.map((name) => ({
+                  "@type": "Place",
+                  name,
+                })),
+              },
+              url: `${siteUrl}/contact`,
+            })),
+            {
+              "@type": "OfferCatalog",
+              name: "Solar equipment",
+              itemListElement: products.map((product) => ({
+                "@type": "ListItem",
+                name: product.name,
+                description: product.summary,
+                url: `${siteUrl}/#products`,
+              })),
+            },
+          ],
+        },
       },
-      ...products.map((product) => ({
-        "@type": "Product",
-        name: product.name,
-        description: product.summary,
-        category: product.category,
-        brand: { "@type": "Brand", name: business.name },
-      })),
     ],
   };
 }
